@@ -1,13 +1,17 @@
 import DishAddForm from 'components/DishAddForm';
-let submit = (values: any) => {
+import { FormStyled } from './styles';
+
+const submit = (values: any) => {
   // e.preventDefault();
   console.log('Submit', values);
 };
+
 const Form = () => {
   return (
-    <div>
+    <FormStyled>
+      <h1>Add dish form</h1>
       <DishAddForm onSubmit={submit} />
-    </div>
+    </FormStyled>
   );
 };
 
