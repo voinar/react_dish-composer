@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import formSlice from 'features/form/formSlice';
+import { reducer as formReducer } from 'redux-form';
 
 export const store = configureStore({
   reducer: {
-    // posts: postsReducer,
-    // comments: commentsReducer,
-    // users: usersReducer,
+    counter: formSlice,
+    form: formReducer,
   },
 });
 
