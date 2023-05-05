@@ -10,9 +10,6 @@ export const DishAddFormStyled = styled.form`
 `;
 
 export const FormElementStyled = styled.div`
-  height: ${(props) => (props.$isHidden ? '0px' : 'auto')};
-  opacity: ${(props) => (props.$isHidden ? '0' : '1')};
-
   display: flex;
   flex-direction: column;
   gap: 0.4rem;

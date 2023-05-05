@@ -66,7 +66,7 @@ let DishAddForm = (props) => {
         isVisible={formContent?.values?.type === 'pizza' ? true : false}
       />
       <FormElement
-        name="spiciness"
+        name="spiciness_scale"
         label="Spiciness"
         component="select"
         type="select"

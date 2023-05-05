@@ -16,6 +16,7 @@ const FormElement = (props) => {
             component={props.component}
             type={props.type}
             placeholder={props.placeholder}
+            // required
           />
         </FormElementStyled>
       );
@@ -29,6 +30,8 @@ const FormElement = (props) => {
             type={props.type}
             placeholder={props.placeholder}
             step="1"
+            value="05:00"
+            // required
           />
         </FormElementStyled>
       );
@@ -41,6 +44,7 @@ const FormElement = (props) => {
             component={props.component}
             type={props.type}
             options={props.options}
+            // required
           >
             {props.options.map((option) => (
               <option key={option} value={option}>
@@ -69,6 +73,7 @@ const FormElement = (props) => {
             step={props.step}
             min={props.min}
             max={props.max}
+            required={props.isVisible}
           />
         </FormElementStyled>
       );
@@ -90,10 +95,11 @@ const FormElement = (props) => {
             step={props.step}
             min={props.min}
             max={props.max}
+            required={props.isVisible}
           />
         </FormElementStyled>
       );
-    case 'spiciness':
+    case 'spiciness_scale':
       return (
         <FormElementStyled
           style={
@@ -109,6 +115,7 @@ const FormElement = (props) => {
             type={props.type}
             placeholder={props.placeholder}
             options={props.options}
+            required={props.isVisible}
           >
             {props.options.map((option) => (
               <option key={option} value={option}>
