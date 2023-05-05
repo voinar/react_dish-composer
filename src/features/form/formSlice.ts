@@ -5,14 +5,23 @@ import type { RootState } from 'redux/store';
 // Define a type for the slice state
 interface FormState {
   value: number;
-  firstName: string;
+  // firstName: string;
+  form: {};
 }
 
 // Define the initial state using that type
 const initialState: FormState = {
   value: 0,
+  form: {
+    form: {
+      values: {
+        // name: 'firstName',
+        // preparation_time: 'ok',
+      },
+    },
+  },
   // form: { firstName: 'default name' },
-  firstName: 'default name',
+  // firstName: 'default name',
 };
 
 export const formSlice = createSlice({

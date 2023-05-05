@@ -1,4 +1,3 @@
-import { Title } from 'components/Title/styles';
 import { useAppSelector, useAppDispatch } from 'hooks/hooks';
 import {
   increment,
@@ -12,11 +11,7 @@ const TestForm = () => {
 
   return (
     <>
-      {/* name{JSON.stringify(name.form.firstName)} */}
       <header className="App-header">
-        <Title>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </Title>
         <h2>{count}</h2>
         <button
           onClick={() => {
