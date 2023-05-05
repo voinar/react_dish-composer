@@ -9,13 +9,19 @@ export const DishAddFormStyled = styled.form`
   gap: 1.4rem;
 `;
 
-export const FormSection = styled.div`
+export const FormElementStyled = styled.div`
+  height: ${(props) => (props.$isHidden ? '0px' : 'auto')};
+  opacity: ${(props) => (props.$isHidden ? '0' : '1')};
+
   display: flex;
   flex-direction: column;
-  gap: .4rem;
+  gap: 0.4rem;
+  overflow: 'hidden';
+  transition: all 0.6s;
 
   input[type='text'],
   input[type='number'],
+  input[type='time'],
   select {
     padding: 0 8px;
     height: 2.2rem;
@@ -45,7 +51,7 @@ export const FormSection = styled.div`
   }
 
   label {
-    font-size: 16px;
+    font-size: 1rem;
   }
 `;
 
@@ -60,7 +66,7 @@ export const Button = styled.button`
   border-radius: 6px;
   color: #885c5c;
   cursor: pointer;
-  transition: all .3s;
+  transition: all 0.3s;
 
   :hover {
     background-color: #885c5c;

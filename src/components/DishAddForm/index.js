@@ -1,125 +1,20 @@
 import { Field, reduxForm } from 'redux-form';
 import { DishAddFormStyled, FormSection, Button } from './styles';
 import { useAppSelector } from 'hooks/hooks';
-
-const FormElement = (props) => {
-  switch (props.name) {
-    case 'name':
-      return (
-        <FormSection>
-          <label htmlFor={props.htmlFor}>{props.label}</label>
-          <Field
-            name={props.name}
-            component={props.component}
-            type={props.type}
-            placeholder={props.placeholder}
-          />
-        </FormSection>
-      );
-    case 'preparation_time':
-      return (
-        <FormSection>
-          <label htmlFor={props.htmlFor}>{props.label}</label>
-          <Field
-            name={props.name}
-            component={props.component}
-            type={props.type}
-            placeholder={props.placeholder}
-          />
-        </FormSection>
-      );
-    case 'type':
-      return (
-        <FormSection>
-          <label htmlFor={props.htmlFor}>{props.label}</label>
-          <Field
-            name={props.name}
-            component={props.component}
-            type={props.type}
-            options={props.options}
-          >
-            {props.options.map((option) => (
-              <option key={option} value={option}>
-                {option.charAt(0).toUpperCase() + option.slice(1)}
-              </option>
-            ))}
-          </Field>
-        </FormSection>
-      );
-    case 'no_of_slices' || 'slices_of_bread':
-      return (
-        <FormSection>
-          <label htmlFor={props.htmlFor}>{props.label}</label>
-          <Field
-            name={props.name}
-            component={props.component}
-            type={props.type}
-            placeholder={props.placeholder}
-            step={props.step}
-            min={props.min}
-            max={props.max}
-          />
-        </FormSection>
-      );
-    case 'diameter':
-      return (
-        <FormSection>
-          <label htmlFor={props.htmlFor}>{props.label}</label>
-          <Field
-            name={props.name}
-            component={props.component}
-            type={props.type}
-            placeholder={props.placeholder}
-            step={props.step}
-            min={props.min}
-            max={props.max}
-          />
-        </FormSection>
-      );
-    case 'spiciness':
-      return (
-        <FormSection>
-          <label htmlFor={props.htmlFor}>{props.label}</label>
-          <Field
-            name={props.name}
-            component={props.component}
-            type={props.type}
-            placeholder={props.placeholder}
-            options={props.options}
-          >
-            {props.options.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </Field>
-        </FormSection>
-      );
-    default:
-      return (
-        <FormSection>
-          <label htmlFor={props.htmlFor || 'default'}>
-            {props.label || 'default'}
-          </label>
-          <Field
-            name={props.name || 'default'}
-            component={props.component || 'input'}
-            type={props.type || 'text'}
-            step={props.step || 'default'}
-            min={props.min || 0}
-            max={props.max || 99}
-            placeholder={props.placeholder || 'default'}
-            options={props.options || []}
-          />
-        </FormSection>
-      );
-  }
-};
+import FormElement from 'components/FormElement';
 
 let DishAddForm = (props) => {
   const { handleSubmit } = props;
-  const formContent = useAppSelector((state) => state.form);
+  const formContent = useAppSelector((state) => state.form.form);
   const displayFormContent = JSON.stringify(formContent);
+
+  const handleTypeSelectionChange = () => {
+    console.log(formContent?.values?.type);
+  };
+
+  const FormElementsConditional = () => {
+    <></>;
+  };
 
   return (
     <DishAddFormStyled onSubmit={handleSubmit}>
@@ -137,7 +32,7 @@ let DishAddForm = (props) => {
         label="Preparation time"
         htmlFor="preparation_time"
         component="input"
-        type="text"
+        type="time"
         placeholder="00:10:00"
       />
       <FormElement
@@ -145,7 +40,8 @@ let DishAddForm = (props) => {
         label="Select type"
         htmlFor="type"
         component="select"
-        options={['pizza', 'sandwich', 'soup']}
+        options={['none', 'pizza', 'sandwich', 'soup']}
+        onChange={handleTypeSelectionChange()}
       />
       <FormElement
         name="no_of_slices"
@@ -156,6 +52,7 @@ let DishAddForm = (props) => {
         min="1"
         max="99"
         placeholder="How many slices?"
+        isVisible={formContent?.values?.type === 'pizza' ? true : false}
       />
       <FormElement
         name="diameter"
@@ -166,6 +63,7 @@ let DishAddForm = (props) => {
         min="10"
         max="60"
         placeholder="enter diameter"
+        isVisible={formContent?.values?.type === 'pizza' ? true : false}
       />
       <FormElement
         name="spiciness"
@@ -173,6 +71,7 @@ let DishAddForm = (props) => {
         component="select"
         type="select"
         options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+        isVisible={formContent?.values?.type === 'soup' ? true : false}
       />
       <FormElement
         name="slices_of_bread"
@@ -183,8 +82,9 @@ let DishAddForm = (props) => {
         min="1"
         max="99"
         placeholder="How many slices?"
+        isVisible={formContent?.values?.type === 'sandwich' ? true : false}
       />
-
+      <FormElementsConditional />
       {/* <FormSection>
         <label htmlFor="slices_of_bread">Slices of bread</label>
         <Field
