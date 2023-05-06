@@ -1,11 +1,21 @@
-import { Field, reduxForm } from 'redux-form';
-import {
-  DishAddFormStyled,
-  FormElementStyled,
-  Button,
-} from 'components/DishAddForm/styles';
+import { Field } from 'redux-form';
+import { FormElementStyled } from './styles';
 
-const FormElement = (props) => {
+interface IFormElement {
+  name: string;
+  htmlFor: string;
+  label: string;
+  component: string;
+  type: string;
+  placeholder: string;
+  options: string[];
+  isVisible: boolean;
+  step: number;
+  min: number;
+  max: number;
+}
+
+const FormElement = (props: IFormElement) => {
   switch (props.name) {
     case 'name':
       return (

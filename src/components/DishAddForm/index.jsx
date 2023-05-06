@@ -1,36 +1,13 @@
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
+import { useAppSelector } from 'hooks/hooks';
 import {
   DishAddFormStyled,
   FormHeader,
   FormHeaderText,
-  FormSection,
   Button,
-  FormIcon,
 } from './styles';
-import { useAppSelector } from 'hooks/hooks';
 import FormElement from 'components/FormElement';
-import IconAdd from 'img/icons/icon-add.svg';
-import IconPizza from 'img/icons/icon-pizza.svg';
-import IconSandwich from 'img/icons/icon-sandwich.svg';
-import IconSoup from 'img/icons/icon-soup.svg';
-
-const FormIconContainer = () => {
-  const formContent = useAppSelector((state) => state.form.form);
-  const formType = formContent?.values?.type
-
-  switch (formType) {
-    case undefined:
-      return <FormIcon src={IconAdd} alt="Add dish" />;
-    case 'pizza':
-      return <FormIcon src={IconPizza} alt="Add dish" />;
-    case 'soup':
-      return <FormIcon src={IconSoup} alt="Add dish" />;
-    case 'sandwich':
-      return <FormIcon src={IconSandwich} alt="Add dish" />;
-    default:
-      return <FormIcon src={IconAdd} alt="Add dish" />;
-  }
-};
+import FormIcon from 'components/FormIcon';
 
 let DishAddForm = (props) => {
   const { handleSubmit } = props;
@@ -41,7 +18,7 @@ let DishAddForm = (props) => {
     <>
       <DishAddFormStyled onSubmit={handleSubmit}>
         <FormHeader>
-          <FormIconContainer />
+          <FormIcon />
           <FormHeaderText>Add dish</FormHeaderText>
         </FormHeader>
         <FormElement
@@ -187,9 +164,6 @@ let DishAddForm = (props) => {
           placeholder="enter no. of slices"
         />
       </FormSection> */}
-
-        {/* <FormSectionWithProps props={props} /> */}
-
         <Button type="submit">Submit</Button>
       </DishAddFormStyled>
     </>
@@ -197,7 +171,6 @@ let DishAddForm = (props) => {
 };
 
 DishAddForm = reduxForm({
-  // a unique name for the form
   form: 'form',
 })(DishAddForm);
 

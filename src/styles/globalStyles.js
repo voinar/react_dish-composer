@@ -14,7 +14,7 @@ select:focus {
   outline: 1px solid #885C5C33;
 }
 
-h1 {
+${'' /* h1 {
   font-size: 32px;
   font-weight: 400;
 }
@@ -25,7 +25,7 @@ h2 {
 
 span {
   font-size: 16px;
-}
+} */}
 
 `;
 

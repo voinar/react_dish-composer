@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import formSlice from 'features/form/formSlice';
 import { reducer as formReducer } from 'redux-form';
+import errorMessageSlice from 'redux/errorMessageSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: formSlice,
+    errorMessage: errorMessageSlice,
     form: formReducer,
   },
 });
