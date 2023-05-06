@@ -5,8 +5,23 @@ export const DishAddFormStyled = styled.form`
   flex-direction: column;
   height: 100%;
   width: 220px;
-
   gap: 1.4rem;
+`;
+
+export const FormHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: .5rem;
+`;
+
+export const FormHeaderText = styled.h1`
+  font-size: 1.6rem;
+`;
+
+export const FormIcon = styled.img`
+  height: 4rem;
+  margin-left: -.6rem;
 `;
 
 export const FormElementStyled = styled.div`

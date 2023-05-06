@@ -2,6 +2,7 @@ import DishAddForm from 'components/DishAddForm';
 import { FormStyled } from './styles';
 import axios from 'axios';
 
+
 const submit = (values: any) => {
   // e.preventDefault();
 
@@ -18,24 +19,23 @@ const submit = (values: any) => {
 
   console.log('Submit', requestObject);
 
-  axios
-    .post(
-      'https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes/',
-      requestObject
-    )
-    .then(function (response) {
-      console.log(response.data);
-      console.log(response.status);
-      console.log(response.statusText);
-      console.log(response.headers);
-      console.log(response.config);
-    });
+  // axios
+  //   .post(
+  //     'https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes/',
+  //     requestObject
+  //   )
+  //   .then(function (response) {
+  //     console.log(response.data);
+  //     console.log(response.status);
+  //     console.log(response.statusText);
+  //     console.log(response.headers);
+  //     console.log(response.config);
+  //   });
 };
 
 const Form = () => {
   return (
     <FormStyled>
-      <h1>Add dish form</h1>
       <DishAddForm onSubmit={submit} />
     </FormStyled>
   );
