@@ -15,11 +15,12 @@ export const FormHeader = styled.div`
 export const FormHeaderText = styled.h1`
   font-size: 1.6rem;
   margin-left: .5rem;
+  cursor: default;
 `;
 
 export const Button = styled.button`
   margin: 3rem 0 2rem;
-  height: 2.2rem;
+  height: 2.4rem;
   font-weight: 800;
   text-transform: uppercase;
   width: 100%;

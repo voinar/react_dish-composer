@@ -16,39 +16,7 @@ import {
 } from 'redux/confirmationMessageSlice';
 import ErrorMessage from 'components/ErrorMessage';
 import ConfirmationMessage from 'components/ConfirmationMessage';
-
-// interface IRequestObject {
-//   name: string;
-//   preparation_time: string;
-//   type: string;
-//   no_of_slices: number;
-//   diameter: number;
-//   spiciness_scale: number;
-//   slices_of_bread: number;
-// }
-
-// ERR
-// {
-//   "name": [
-//       "field required"
-//   ],
-//   "type": [
-//       "field required"
-//   ],
-//   "preparation_time": [
-//       "field required"
-//   ]
-// }
-
-// SUCC
-// {
-//   "id": 1,
-//   "name": "123",
-//   "type": "pizza",
-//   "preparation_time": "11:11:11",
-//   "no_of_slices": 11,
-//   "diameter": 11
-// }
+import { RequestObject } from 'types/requestObject';
 
 const Form = () => {
   const dispatch = useAppDispatch();
@@ -58,9 +26,12 @@ const Form = () => {
   const isConfirmationMessageVisible = useAppSelector(
     (state) => state.confirmationMessage.isVisible
   );
-  const requestUrl = process.env.REACT_APP_POST_REQUEST_URL;
 
-  const submitForm = (values) => {
+  // type ProcessEnv = { [key: string]: string | undefined };
+
+  const requestUrl: any = process.env.REACT_APP_POST_REQUEST_URL;
+
+  const submitForm = (values: RequestObject) => {
     const requestObject = {
       name: values.name,
       preparation_time: values.preparation_time,
@@ -70,7 +41,6 @@ const Form = () => {
       spiciness_scale: values?.spiciness_scale,
       slices_of_bread: values?.slices_of_bread,
     };
-    // {"name": "HexOcean pizza", "preparation_time": "01:30:22", "type": "pizza", "no_of_slices": 4, "diameter": 33.4}
 
     console.log('Submit', requestObject);
 
@@ -90,10 +60,6 @@ const Form = () => {
       })
       .catch(function (error) {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-
           dispatch({ type: setConfirmationAsHidden });
           dispatch({ type: setErrorAsVisible });
           dispatch({
@@ -104,12 +70,7 @@ const Form = () => {
             type: updateErrorMessageContent,
             payload: error.response.data,
           });
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log('Error', error.message);
         }
-        console.log(error.config);
       });
   };
 
@@ -118,20 +79,6 @@ const Form = () => {
       <DishAddForm onSubmit={submitForm} />
       {isErrorMessageVisible && <ErrorMessage />}
       {isConfirmationMessageVisible && <ConfirmationMessage />}
-      {/* <button
-        onClick={() => {
-          dispatch({ type: setErrorAsHidden });
-        }}
-      >
-        setHidden
-      </button>
-      <button
-        onClick={() => {
-          dispatch({ type: setErrorAsVisible });
-        }}
-      >
-        setVisible
-      </button> */}
     </FormStyled>
   );
 };

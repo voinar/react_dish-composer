@@ -1,7 +1,4 @@
 import {
-  DecoratedComponentClass,
-  DecoratedFormProps,
-  InjectedFormProps,
   reduxForm,
 } from 'redux-form';
 import { useAppSelector } from 'hooks/hooks';
@@ -13,7 +10,6 @@ import {
 } from './styles';
 import FormElement from 'components/FormElement';
 import FormIcon from 'components/FormIcon';
-import { ComponentType } from 'react';
 
 // type FormProps = {
 //   handleSubmit: any;
