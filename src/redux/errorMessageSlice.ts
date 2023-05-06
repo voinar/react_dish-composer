@@ -10,7 +10,7 @@ interface ErrorMessageState {
 const initialState: ErrorMessageState = {
   errorMessageTitle: 'Error',
   errorMessageContent: {},
-  isVisible: true,
+  isVisible: false,
 };
 
 export const errorMessageSlice = createSlice({

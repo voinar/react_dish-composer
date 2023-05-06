@@ -1,8 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'hooks/hooks';
 import DishAddForm from 'components/DishAddForm';
-import {
-  FormStyled,
-} from './styles';
+import { FormStyled } from './styles';
 import axios from 'axios';
 import {
   updateErrorMessageTitle,
@@ -10,24 +8,36 @@ import {
   setErrorAsVisible,
   setErrorAsHidden,
 } from 'redux/errorMessageSlice';
+import {
+  updateConfirmationMessageTitle,
+  updateConfirmationMessageContent,
+  setConfirmationAsVisible,
+  setConfirmationAsHidden,
+} from 'redux/confirmationMessageSlice';
 import ErrorMessage from 'components/ErrorMessage';
+import ConfirmationMessage from 'components/ConfirmationMessage';
 
-interface IRequestObject {
-  name: string;
-  preparation_time: string;
-  type: string;
-  no_of_slices: number;
-  diameter: number;
-  spiciness_scale: number;
-  slices_of_bread: number;
-}
-
+// interface IRequestObject {
+//   name: string;
+//   preparation_time: string;
+//   type: string;
+//   no_of_slices: number;
+//   diameter: number;
+//   spiciness_scale: number;
+//   slices_of_bread: number;
+// }
 
 const Form = () => {
   const dispatch = useAppDispatch();
-  const isVisible = useAppSelector((state) => state.errorMessage.isVisible);
+  const isErrorMessageVisible = useAppSelector(
+    (state) => state.errorMessage.isVisible
+  );
+  const isConfirmationMessageVisible = useAppSelector(
+    (state) => state.confirmationMessage.isVisible
+  );
+  const requestUrl = process.env.REACT_APP_POST_REQUEST_URL;
 
-  const submitForm = (values: IRequestObject) => {
+  const submitForm = (values) => {
     const requestObject = {
       name: values.name,
       preparation_time: values.preparation_time,
@@ -42,10 +52,7 @@ const Form = () => {
     console.log('Submit', requestObject);
 
     axios
-      .post(
-        'https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes/',
-        requestObject
-      )
+      .post(requestUrl, requestObject)
       .then(function (response) {
         console.log(response.data);
         // console.log(response.status);
@@ -53,6 +60,15 @@ const Form = () => {
         // console.log(response.headers);
         // console.log(response.config);
         dispatch({ type: setErrorAsHidden });
+        dispatch({ type: setConfirmationAsVisible });
+        dispatch({
+          type: updateConfirmationMessageTitle,
+          payload: response.status,
+        });
+        dispatch({
+          type: updateConfirmationMessageContent,
+          payload: response.data,
+        });
       })
       .catch(function (error) {
         if (error.response) {
@@ -62,6 +78,7 @@ const Form = () => {
           console.log(error.response.status);
           console.log(error.response.headers);
 
+          dispatch({ type: setConfirmationAsHidden });
           dispatch({ type: setErrorAsVisible });
           dispatch({
             type: updateErrorMessageTitle,
@@ -87,7 +104,8 @@ const Form = () => {
   return (
     <FormStyled>
       <DishAddForm onSubmit={submitForm} />
-      {isVisible && <ErrorMessage />}
+      {isErrorMessageVisible && <ErrorMessage />}
+      {isConfirmationMessageVisible && <ConfirmationMessage />}
       <button
         onClick={() => {
           dispatch({ type: setErrorAsHidden });

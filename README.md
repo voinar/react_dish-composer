@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <br>
+  Dish Composer Form
+  <br>
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h4 align="center">A minimal Dish Composer Form created with React and Redux-form</h4>
 
-## Available Scripts
+<p align="left">
+Table of contenst:
+- Key Features
+- Tech
+- How To Setup
+- License
+</p>
 
-In the project directory, you can run:
+## Live preview
+## 👉 https://react-dish-composer.vercel.app/ 👀
 
-### `npm start`
+<a href="https://react-dish-composer.vercel.app/">
+<img width="260" alt="dish composer form" src="https://user-images.githubusercontent.com/38013623/236595859-03461717-0901-46fe-a7b3-669595bb11be.png">
+</a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Key Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Create a dish by selecting from the available options
+* Input validation
+* Send request to API
+* Error handling
+* Receive response from server & display results
 
-### `npm test`
+## Tech:
+* React 18.2
+* Node 16.18.1
+* Npm 8.5.0
+* Redux Toolkit
+* Redux-Form
+* Typescript
+* Styled Components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How To Setup
 
-### `npm run build`
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clone this repository
+$ git clone https://github.com/voinar/react_dish-composer
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Go into the repository
+$ cd dish-composer
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Install dependencies
+$ npm install
 
-### `npm run eject`
+# Run the app
+$ npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The app will start on http://localhost:3000/ by default.
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+MIT
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> GitHub [@voinar](https://github.com/voinar)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
