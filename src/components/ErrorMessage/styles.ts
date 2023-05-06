@@ -30,7 +30,7 @@ export const ErrorMessageContent = styled.ul`
   font-weight: 500;
 `;
 
-export const ErrorMessageContentRow = styled.li`
+export const ErrorMessageContentRow = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -39,10 +39,6 @@ export const ErrorMessageContentRow = styled.li`
     font-weight: 600;
     margin: 0.2rem;
     min-width: fit-content;
-  }
-
-  p::before {
-    content: '• ';
   }
 
   p::after {

@@ -1,15 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-
-interface ErrorMessageState {
-  errorMessageTitle: string;
-  errorMessageContent: {};
-  isVisible: boolean;
-}
+import { ErrorMessageState } from 'types/errorMessageState';
 
 const initialState: ErrorMessageState = {
   errorMessageTitle: 'Error',
-  errorMessageContent: {},
+  errorMessageContent: {
+    name: ['default'],
+  },
   isVisible: false,
 };
 
@@ -18,16 +15,21 @@ export const errorMessageSlice = createSlice({
   initialState,
   reducers: {
     updateErrorMessageTitle: (state, action: PayloadAction<string>) => {
-      state.errorMessageTitle = action.payload;
+      return { ...state, errorMessageTitle: action.payload };
     },
-    updateErrorMessageContent: (state, action: PayloadAction<string>) => {
-      state.errorMessageContent = action.payload;
+    updateErrorMessageContent: (
+      state,
+      action: PayloadAction<{
+        [key: string]: string[];
+      }>
+    ) => {
+      return { ...state, errorMessageContent: action.payload };
     },
     setErrorAsVisible: (state) => {
-      state.isVisible = true;
+      return { ...state, isVisible: true };
     },
     setErrorAsHidden: (state) => {
-      state.isVisible = false;
+      return { ...state, isVisible: false };
     },
   },
 });

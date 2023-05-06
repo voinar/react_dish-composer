@@ -33,22 +33,12 @@ export const ConfirmationMessageContent = styled.ul`
 export const ConfirmationMessageContentRow = styled.li`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: .5rem;
 
-  p {
-    font-weight: 600;
-    margin: .2rem;
-  }
-
-  p::before {
-    content: '• ';
-  }
-
-  p::after {
-    content: ': ';
-  }
+  font-weight: 600;
+  margin: 0.2rem;
 
   span {
-    color: #68885C;
+    color: #68885c;
   }
 `;

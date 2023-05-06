@@ -1,4 +1,9 @@
-import { reduxForm } from 'redux-form';
+import {
+  DecoratedComponentClass,
+  DecoratedFormProps,
+  InjectedFormProps,
+  reduxForm,
+} from 'redux-form';
 import { useAppSelector } from 'hooks/hooks';
 import {
   DishAddFormStyled,
@@ -8,11 +13,17 @@ import {
 } from './styles';
 import FormElement from 'components/FormElement';
 import FormIcon from 'components/FormIcon';
+import { ComponentType } from 'react';
+
+// type FormProps = {
+//   handleSubmit: any;
+//   DishAddForm: ComponentType<InjectedFormProps<{}, {}, string>> | ComponentType<InjectedFormProps<{}, {}, string>>;
+// };
 
 let DishAddForm = (props) => {
   const { handleSubmit } = props;
   const formContent = useAppSelector((state) => state.form.form);
-  const formType = formContent?.values?.type
+  const formType = formContent?.values?.type;
 
   return (
     <>
@@ -63,7 +74,7 @@ let DishAddForm = (props) => {
           step="0.1"
           min="10"
           max="60"
-          placeholder="enter diameter"
+          placeholder="Enter number"
           isVisible={formType === 'pizza'}
         />
         <FormElement

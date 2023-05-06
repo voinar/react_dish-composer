@@ -1,21 +1,21 @@
 import { Field } from 'redux-form';
 import { FormElementStyled } from './styles';
 
-interface IFormElement {
+type TFormElement = {
   name: string;
-  htmlFor: string;
-  label: string;
-  component: string;
-  type: string;
-  placeholder: string;
-  options: string[];
-  isVisible: boolean;
-  step: number;
-  min: number;
-  max: number;
+  htmlFor?: string;
+  label?: string;
+  component?: string;
+  type?: string;
+  placeholder?: string;
+  options?: number[] | string[] | [];
+  isVisible?: boolean;
+  step?: number | string;
+  min?: number | string;
+  max?: number | string;
 }
 
-const FormElement = (props: IFormElement) => {
+const FormElement = (props: TFormElement) => {
   const getVisibility = () => {
     return props.isVisible
       ? {
@@ -40,7 +40,7 @@ const FormElement = (props: IFormElement) => {
             component={props.component}
             type={props.type}
             placeholder={props.placeholder}
-            // required
+            required
           />
         </FormElementStyled>
       );
@@ -55,7 +55,7 @@ const FormElement = (props: IFormElement) => {
             placeholder={props.placeholder}
             step="1"
             value="05:00"
-            // required
+            required
           />
         </FormElementStyled>
       );
@@ -68,11 +68,12 @@ const FormElement = (props: IFormElement) => {
             component={props.component}
             type={props.type}
             options={props.options}
-            // required
+            required
           >
-            {props.options.map((option) => (
+            {props?.options?.map((option) => (
               <option key={option} value={option}>
-                {option.charAt(0).toUpperCase() + option.slice(1)}
+                {/* {option?.charAt(0).toUpperCase() + option?.slice(1)} */}
+                {option}
               </option>
             ))}
           </Field>
@@ -123,7 +124,7 @@ const FormElement = (props: IFormElement) => {
             options={props.options}
             required={props.isVisible}
           >
-            {props.options.map((option) => (
+            {props?.options?.map((option) => (
               <option key={option} value={option}>
                 {option}
               </option>

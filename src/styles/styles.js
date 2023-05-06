@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const AppStyled = styled.div`
   padding: 6em;
-  /* height: 100%; */
-  /* max-height: 70%; */
+
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+  }
 `;

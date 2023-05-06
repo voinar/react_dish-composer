@@ -1,15 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { ApiResponseObj } from 'types/apiResponseObj';
 
 interface ConfirmationMessageState {
   confirmationMessageTitle: string;
-  confirmationMessageContent: {};
+  confirmationMessageContent: ApiResponseObj;
   isVisible: boolean;
 }
 
 const initialState: ConfirmationMessageState = {
-  confirmationMessageTitle: 'Error',
-  confirmationMessageContent: {},
+  confirmationMessageTitle: 'Confirmation',
+  confirmationMessageContent: {
+    name: ['ensure this value has at least 3 characters'],
+    type: ['field required'],
+    preparation_time: ['field required'],
+  },
+  // {
+  //   string: [''],
+  // },
   isVisible: false,
 };
 
@@ -18,16 +26,16 @@ export const confirmationMessageSlice = createSlice({
   initialState,
   reducers: {
     updateConfirmationMessageTitle: (state, action: PayloadAction<string>) => {
-      state.confirmationMessageTitle = action.payload;
+      return { ...state, confirmationMessageTitle: action.payload };
     },
-    updateConfirmationMessageContent: (state, action: PayloadAction<string>) => {
-      state.confirmationMessageContent = action.payload;
+    updateConfirmationMessageContent: (state, action: PayloadAction<any>) => {
+      return { ...state, confirmationMessageContent: action.payload };
     },
     setConfirmationAsVisible: (state) => {
-      state.isVisible = true;
+      return { ...state, isVisible: true };
     },
     setConfirmationAsHidden: (state) => {
-      state.isVisible = false;
+      return { ...state, isVisible: false };
     },
   },
 });

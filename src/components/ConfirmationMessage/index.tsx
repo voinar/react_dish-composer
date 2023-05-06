@@ -8,24 +8,15 @@ import {
   ConfirmationMessageContentRow,
 } from './styles';
 import IconSuccess from 'img/icons/icon-success.svg';
+import { ApiResponseObj } from 'types/apiResponseObj';
 
 const ConfirmationMessage = () => {
-  type ConfirmationObj = {
-    [key: string]: string[];
-  };
-
   const confirmationMessageTitle = useAppSelector(
     (state) => state.confirmationMessage.confirmationMessageTitle
   );
-  const confirmationMessageContent: ConfirmationObj =
-    // {
-    //   name: ['ensure this value has at least 3 characters'],
-    //   type: ['field required'],
-    //   preparation_time: ['field required'],
-    // };
-    useAppSelector(
-      (state) => state.confirmationMessage.confirmationMessageContent
-    );
+  const confirmationMessageContent: ApiResponseObj = useAppSelector(
+    (state) => state.confirmationMessage.confirmationMessageContent
+  );
 
   return (
     <ConfirmationMessageStyled>
@@ -40,27 +31,11 @@ const ConfirmationMessage = () => {
         {Object.keys(confirmationMessageContent).map((key, index) => {
           return (
             <ConfirmationMessageContentRow key={index}>
-              <p>
-                {key}: <span>{confirmationMessageContent[key]}</span>
-              </p>
+              {key}: <span>{confirmationMessageContent[key]}</span>
             </ConfirmationMessageContentRow>
           );
         })}
       </ConfirmationMessageContent>
-      {/* <ConfirmationMessageContent>
-        {Object.keys(confirmationMessageContent).map((key) => (
-          <ConfirmationMessageContentRow key={key}>
-            {confirmationMessageContent[key].map(
-              (errorMessage: any, index: number) => (
-                <>
-                  <p key={index}>{key}</p>
-                  <span>{errorMessage}</span>
-                </>
-              )
-            )}
-          </ConfirmationMessageContentRow>
-        ))}
-      </ConfirmationMessageContent> */}
     </ConfirmationMessageStyled>
   );
 };
