@@ -11,7 +11,7 @@ import { ApiResponseObj } from 'types/apiResponseObj';
 
 const Form = () => {
   const dispatch = useAppDispatch();
-  const requestUrl: any = process.env.REACT_APP_POST_REQUEST_URL;
+  const requestUrl: string = process.env.REACT_APP_POST_REQUEST_URL!;
 
   const submitForm = (values: RequestObject) => {
     const requestObject = {
@@ -29,15 +29,27 @@ const Form = () => {
       .then(function (response: ApiResponseObj) {
         dispatch(ErrorMessageSlice.setErrorAsHidden());
         dispatch(ConfirmationMessageSlice.setConfirmationAsVisible());
-        dispatch(ConfirmationMessageSlice.updateConfirmationMessageTitle(response.status));
-        dispatch(ConfirmationMessageSlice.updateConfirmationMessageContent(response.data));
+        dispatch(
+          ConfirmationMessageSlice.updateConfirmationMessageTitle(
+            response.status
+          )
+        );
+        dispatch(
+          ConfirmationMessageSlice.updateConfirmationMessageContent(
+            response.data
+          )
+        );
       })
       .catch(function (error) {
         if (error.response) {
           dispatch(ConfirmationMessageSlice.setConfirmationAsHidden());
           dispatch(ErrorMessageSlice.setErrorAsVisible());
-          dispatch(ErrorMessageSlice.updateErrorMessageTitle(error.response.status));
-          dispatch(ErrorMessageSlice.updateErrorMessageContent(error.response.data));
+          dispatch(
+            ErrorMessageSlice.updateErrorMessageTitle(error.response.status)
+          );
+          dispatch(
+            ErrorMessageSlice.updateErrorMessageContent(error.response.data)
+          );
         }
       });
   };
@@ -45,8 +57,10 @@ const Form = () => {
   return (
     <FormStyled>
       <DishAddForm onSubmit={submitForm} />
-      <ErrorMessage />
-      <ConfirmationMessage />
+      <>
+        <ErrorMessage />
+        <ConfirmationMessage />
+      </>
     </FormStyled>
   );
 };

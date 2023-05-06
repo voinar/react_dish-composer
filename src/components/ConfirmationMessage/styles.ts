@@ -3,7 +3,9 @@ import styled from 'styled-components';
 const ConfirmationMessageStyled = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  padding-top: 2rem;
+  margin-left: 4rem;
+  width: 20rem;
   height: auto;
 `;
 

@@ -3,7 +3,13 @@ import styled from 'styled-components';
 const DishAddFormStyled = styled.form`
   display: flex;
   flex-direction: column;
+  width: 20rem;
   height: 100%;
+  padding: 1.5rem;
+
+  background-color: #ece2d8;
+  border: 1px solid #885c5c22;
+  border-radius: .5rem;
 `;
 
 const FormHeader = styled.div`

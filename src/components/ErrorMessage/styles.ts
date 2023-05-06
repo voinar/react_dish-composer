@@ -3,7 +3,9 @@ import styled from 'styled-components';
 const ErrorMessageStyled = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  padding-top: 2rem;
+  margin-left: 4rem;
+  width: 20rem;
   height: auto;
 `;
 
@@ -28,6 +30,7 @@ const ErrorMessageContent = styled.ul`
   padding: 0;
   font-size: 0.9rem;
   font-weight: 500;
+  list-style-type: none
 `;
 
 const ErrorMessageContentRow = styled.div`
