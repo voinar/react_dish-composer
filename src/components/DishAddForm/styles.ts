@@ -4,18 +4,17 @@ export const DishAddFormStyled = styled.form`
   display: flex;
   flex-direction: column;
   height: 100%;
-  gap: 1.4rem;
 `;
 
 export const FormHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: left;
-  gap: .5rem;
 `;
 
 export const FormHeaderText = styled.h1`
   font-size: 1.6rem;
+  margin-left: 8px;
 `;
 
 export const Button = styled.button`

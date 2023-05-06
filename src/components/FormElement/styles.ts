@@ -4,14 +4,16 @@ export const FormElementStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  margin-top: 1.3rem;
   overflow: 'hidden';
   transition: all 0.6s;
+  will-change: transform;
 
   input[type='text'],
   input[type='number'],
   input[type='time'],
   select {
-    padding: 0 8px;
+    padding: 0 .5rem;
     height: 2.2rem;
 
     font-size: 1rem;

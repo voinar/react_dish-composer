@@ -6,13 +6,13 @@
 
 <h4 align="center">A minimal Dish Composer Form created with React and Redux-form</h4>
 
-<p align="left">
-Table of contenst:
+<p align="left">Table of contents:</p>
 - Key Features
 - Tech
 - How To Setup
 - License
-</p>
+  <br>
+
 
 ## Live preview
 ## 👉 https://react-dish-composer.vercel.app/ 👀

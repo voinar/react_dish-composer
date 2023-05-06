@@ -16,6 +16,20 @@ interface IFormElement {
 }
 
 const FormElement = (props: IFormElement) => {
+  const getVisibility = () => {
+    return props.isVisible
+      ? {
+          opacity: 1,
+          transform: 'scaleY(1)',
+        }
+      : {
+          opacity: 0,
+          transform: 'scaleY(0)',
+          maxHeight: '0px',
+          margin: 0,
+        };
+  };
+
   switch (props.name) {
     case 'name':
       return (
@@ -67,13 +81,7 @@ const FormElement = (props: IFormElement) => {
     case 'no_of_slices':
     case 'slices_of_bread':
       return (
-        <FormElementStyled
-          style={
-            props.isVisible
-              ? { height: 'auto', opacity: '1' }
-              : { height: '0px', opacity: '0' }
-          }
-        >
+        <FormElementStyled style={getVisibility()}>
           <label htmlFor={props.htmlFor}>{props.label}</label>
           <Field
             name={props.name}
@@ -89,13 +97,7 @@ const FormElement = (props: IFormElement) => {
       );
     case 'diameter':
       return (
-        <FormElementStyled
-          style={
-            props.isVisible
-              ? { height: 'auto', opacity: '1' }
-              : { height: '0px', opacity: '0' }
-          }
-        >
+        <FormElementStyled style={getVisibility()}>
           <label htmlFor={props.htmlFor}>{props.label}</label>
           <Field
             name={props.name}
@@ -111,13 +113,7 @@ const FormElement = (props: IFormElement) => {
       );
     case 'spiciness_scale':
       return (
-        <FormElementStyled
-          style={
-            props.isVisible
-              ? { height: 'auto', opacity: '1' }
-              : { height: '0px', opacity: '0' }
-          }
-        >
+        <FormElementStyled style={getVisibility()}>
           <label htmlFor={props.htmlFor}>{props.label}</label>
           <Field
             name={props.name}
