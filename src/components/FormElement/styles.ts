@@ -13,7 +13,7 @@ export const FormElementStyled = styled.div`
   input[type='number'],
   input[type='time'],
   select {
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
     height: 2.2rem;
 
     font-size: 1rem;
@@ -26,18 +26,17 @@ export const FormElementStyled = styled.div`
     background-color: #ece2d8;
     color: #885c5c;
 
+    transition: all 0.3s;
+
     ::placeholder {
       color: #885c5c;
       opacity: 0.6; /* Firefox */
     }
   }
 
-  select {
-    /* -webkit-appearance: none; */
-    /* -moz-appearance: none; */
-    /* appearance: none; */
-    /* Remove default arrow */
-    /* Add custom arrow */
+  input:hover,
+  select:hover {
+    background-color: #F5DCC3;
   }
 
   label {

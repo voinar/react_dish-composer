@@ -27,6 +27,29 @@ import ConfirmationMessage from 'components/ConfirmationMessage';
 //   slices_of_bread: number;
 // }
 
+// ERR
+// {
+//   "name": [
+//       "field required"
+//   ],
+//   "type": [
+//       "field required"
+//   ],
+//   "preparation_time": [
+//       "field required"
+//   ]
+// }
+
+// SUCC
+// {
+//   "id": 1,
+//   "name": "123",
+//   "type": "pizza",
+//   "preparation_time": "11:11:11",
+//   "no_of_slices": 11,
+//   "diameter": 11
+// }
+
 const Form = () => {
   const dispatch = useAppDispatch();
   const isErrorMessageVisible = useAppSelector(
@@ -54,11 +77,6 @@ const Form = () => {
     axios
       .post(requestUrl, requestObject)
       .then(function (response) {
-        console.log(response.data);
-        // console.log(response.status);
-        // console.log(response.statusText);
-        // console.log(response.headers);
-        // console.log(response.config);
         dispatch({ type: setErrorAsHidden });
         dispatch({ type: setConfirmationAsVisible });
         dispatch({
@@ -72,8 +90,6 @@ const Form = () => {
       })
       .catch(function (error) {
         if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
@@ -89,12 +105,8 @@ const Form = () => {
             payload: error.response.data,
           });
         } else if (error.request) {
-          // The request was made but no response was received
-          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-          // http.ClientRequest in node.js
           console.log(error.request);
         } else {
-          // Something happened in setting up the request that triggered an Error
           console.log('Error', error.message);
         }
         console.log(error.config);
@@ -106,7 +118,7 @@ const Form = () => {
       <DishAddForm onSubmit={submitForm} />
       {isErrorMessageVisible && <ErrorMessage />}
       {isConfirmationMessageVisible && <ConfirmationMessage />}
-      <button
+      {/* <button
         onClick={() => {
           dispatch({ type: setErrorAsHidden });
         }}
@@ -119,7 +131,7 @@ const Form = () => {
         }}
       >
         setVisible
-      </button>
+      </button> */}
     </FormStyled>
   );
 };

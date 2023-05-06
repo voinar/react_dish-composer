@@ -18,7 +18,7 @@ export const FormHeaderText = styled.h1`
 `;
 
 export const Button = styled.button`
-  margin-top: 1rem;
+  margin: 3rem 0 2rem;
   height: 2.2rem;
   font-weight: 800;
   text-transform: uppercase;

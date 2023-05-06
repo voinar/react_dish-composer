@@ -11,7 +11,7 @@ import IconError from 'img/icons/icon-error.svg';
 
 const ErrorMessage = () => {
   type ErrorObj = {
-    [key: string]: string[],
+    [key: string]: string[];
   };
 
   const errorMessageTitle = useAppSelector(
@@ -25,12 +25,12 @@ const ErrorMessage = () => {
     // };
     useAppSelector((state) => state.errorMessage.errorMessageContent);
 
-  console.log(
-    'errormsg',
-    errorMessageContent,
-    'stateerr',
-    useAppSelector((state) => state.errorMessage.errorMessageContent)
-  );
+  // console.log(
+  //   'errormsg',
+  //   errorMessageContent,
+  //   'stateerr',
+  //   useAppSelector((state) => state.errorMessage.errorMessageContent)
+  // );
 
   return (
     <ErrorMessageStyled>
@@ -38,20 +38,20 @@ const ErrorMessage = () => {
         <ErrorMessageIcon src={IconError} alt="Error" />
         <ErrorMessageTitle>Error: {errorMessageTitle}</ErrorMessageTitle>
       </ErrorMessageHeader>
-      <>
+      <ErrorMessageContent>
         {Object.keys(errorMessageContent).map((key) => (
-          <ErrorMessageContent key={key}>
+          <ErrorMessageContentRow key={key}>
             {errorMessageContent[key].map(
               (errorMessage: any, index: number) => (
-                <ErrorMessageContentRow>
+                <>
                   <p key={index}>{key}</p>
                   <span>{errorMessage}</span>
-                </ErrorMessageContentRow>
+                </>
               )
             )}
-          </ErrorMessageContent>
+          </ErrorMessageContentRow>
         ))}
-      </>
+      </ErrorMessageContent>
     </ErrorMessageStyled>
   );
 };

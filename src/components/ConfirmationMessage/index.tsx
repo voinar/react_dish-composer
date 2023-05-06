@@ -7,11 +7,11 @@ import {
   ConfirmationMessageContent,
   ConfirmationMessageContentRow,
 } from './styles';
-// import IconError from 'img/icons/icon-error.svg';
+import IconSuccess from 'img/icons/icon-success.svg';
 
 const ConfirmationMessage = () => {
   type ConfirmationObj = {
-    [key: string]: any,
+    [key: string]: string[];
   };
 
   const confirmationMessageTitle = useAppSelector(
@@ -23,36 +23,44 @@ const ConfirmationMessage = () => {
     //   type: ['field required'],
     //   preparation_time: ['field required'],
     // };
-    useAppSelector((state) => state.confirmationMessage.confirmationMessageContent);
-
-  console.log(
-    'errormsg',
-    confirmationMessageContent,
-    'stateerr',
-    useAppSelector((state) => state.confirmationMessage.confirmationMessageContent)
-  );
+    useAppSelector(
+      (state) => state.confirmationMessage.confirmationMessageContent
+    );
 
   return (
     <ConfirmationMessageStyled>
       <ConfirmationMessageHeader>
-        {/* <ConfirmationMessageIcon src={IconError} alt="Error" /> */}
-        <ConfirmationMessageTitle>Success: {confirmationMessageTitle}</ConfirmationMessageTitle>
+        <ConfirmationMessageIcon src={IconSuccess} alt="Success" />
+        <ConfirmationMessageTitle>
+          Success: {confirmationMessageTitle}
+        </ConfirmationMessageTitle>
       </ConfirmationMessageHeader>
-      <>
-      {JSON.stringify(confirmationMessageContent)}
-        {/* {Object.keys(confirmationMessageContent).map((key) => (
-          <ConfirmationMessageContent key={key}>
+      {/* {JSON.stringify(confirmationMessageContent)} */}
+      <ConfirmationMessageContent>
+        {Object.keys(confirmationMessageContent).map((key, index) => {
+          return (
+            <ConfirmationMessageContentRow key={index}>
+              <p>
+                {key}: <span>{confirmationMessageContent[key]}</span>
+              </p>
+            </ConfirmationMessageContentRow>
+          );
+        })}
+      </ConfirmationMessageContent>
+      {/* <ConfirmationMessageContent>
+        {Object.keys(confirmationMessageContent).map((key) => (
+          <ConfirmationMessageContentRow key={key}>
             {confirmationMessageContent[key].map(
-              (confirmationMessage: any, index: number) => (
-                <ConfirmationMessageContentRow>
+              (errorMessage: any, index: number) => (
+                <>
                   <p key={index}>{key}</p>
-                  <span>{confirmationMessage}</span>
-                </ConfirmationMessageContentRow>
+                  <span>{errorMessage}</span>
+                </>
               )
             )}
-          </ConfirmationMessageContent>
-        ))} */}
-      </>
+          </ConfirmationMessageContentRow>
+        ))}
+      </ConfirmationMessageContent> */}
     </ConfirmationMessageStyled>
   );
 };
