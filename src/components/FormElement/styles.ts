@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import IconArrow from 'img/icons/icon-arrow.svg';
 
-export const FormElementStyled = styled.div`
+const FormElementStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   margin-top: 1.3rem;
-  overflow: 'hidden';
+  overflow: hidden;
   transition: all 0.6s;
   will-change: transform;
 
@@ -28,7 +29,7 @@ export const FormElementStyled = styled.div`
 
     transition: all 0.3s;
 
-    ::placeholder {
+    &::placeholder {
       color: #885c5c;
       opacity: 0.6; /* Firefox */
     }
@@ -41,7 +42,7 @@ export const FormElementStyled = styled.div`
   select {
     width: 100%;
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='saddlebrown' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-image: url(${IconArrow});
     background-repeat: no-repeat;
     background-position: right 0.7rem center;
     background-size: 1em;
@@ -58,3 +59,5 @@ export const FormElementStyled = styled.div`
     outline: 1px solid #885c5c33;
   }
 `;
+
+export { FormElementStyled };

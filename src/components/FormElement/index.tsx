@@ -1,5 +1,6 @@
 import { Field } from 'redux-form';
 import { FormElementStyled } from './styles';
+import getComponentVisibility from 'utils/getComponentVisibility';
 
 type TFormElement = {
   name: string;
@@ -13,23 +14,9 @@ type TFormElement = {
   step?: number | string;
   min?: number | string;
   max?: number | string;
-}
+};
 
 const FormElement = (props: TFormElement) => {
-  const getVisibility = () => {
-    return props.isVisible
-      ? {
-          opacity: 1,
-          transform: 'scaleY(1)',
-        }
-      : {
-          opacity: 0,
-          transform: 'scaleY(0)',
-          maxHeight: '0px',
-          margin: 0,
-        };
-  };
-
   switch (props.name) {
     case 'name':
       return (
@@ -82,7 +69,7 @@ const FormElement = (props: TFormElement) => {
     case 'no_of_slices':
     case 'slices_of_bread':
       return (
-        <FormElementStyled style={getVisibility()}>
+        <FormElementStyled style={getComponentVisibility(props.isVisible)}>
           <label htmlFor={props.htmlFor}>{props.label}</label>
           <Field
             name={props.name}
@@ -98,7 +85,7 @@ const FormElement = (props: TFormElement) => {
       );
     case 'diameter':
       return (
-        <FormElementStyled style={getVisibility()}>
+        <FormElementStyled style={getComponentVisibility(props.isVisible)}>
           <label htmlFor={props.htmlFor}>{props.label}</label>
           <Field
             name={props.name}
@@ -114,7 +101,7 @@ const FormElement = (props: TFormElement) => {
       );
     case 'spiciness_scale':
       return (
-        <FormElementStyled style={getVisibility()}>
+        <FormElementStyled style={getComponentVisibility(props.isVisible)}>
           <label htmlFor={props.htmlFor}>{props.label}</label>
           <Field
             name={props.name}

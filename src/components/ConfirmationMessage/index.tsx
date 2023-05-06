@@ -8,33 +8,27 @@ import {
   ConfirmationMessageContentRow,
 } from './styles';
 import IconSuccess from 'img/icons/icon-success.svg';
-import { ApiResponseObj } from 'types/apiResponseObj';
+// import { ApiResponseObj } from 'types/apiResponseObj';
+import getComponentVisibility from 'utils/getComponentVisibility';
 
 const ConfirmationMessage = () => {
-  const confirmationMessageTitle = useAppSelector(
-    (state) => state.confirmationMessage.confirmationMessageTitle
-  );
-  const confirmationMessageContent: ApiResponseObj = useAppSelector(
-    (state) => state.confirmationMessage.confirmationMessageContent
-  );
+  const { confirmationMessageTitle, confirmationMessageContent, isVisible } =
+    useAppSelector((state) => state.confirmationMessage);
 
   return (
-    <ConfirmationMessageStyled>
+    <ConfirmationMessageStyled style={getComponentVisibility(isVisible)}>
       <ConfirmationMessageHeader>
         <ConfirmationMessageIcon src={IconSuccess} alt="Success" />
         <ConfirmationMessageTitle>
           Success: {confirmationMessageTitle}
         </ConfirmationMessageTitle>
       </ConfirmationMessageHeader>
-      {/* {JSON.stringify(confirmationMessageContent)} */}
       <ConfirmationMessageContent>
-        {Object.keys(confirmationMessageContent).map((key, index) => {
-          return (
-            <ConfirmationMessageContentRow key={index}>
-              {key}: <span>{confirmationMessageContent[key]}</span>
-            </ConfirmationMessageContentRow>
-          );
-        })}
+        {Object.entries(confirmationMessageContent).map(([key, value]) => (
+          <ConfirmationMessageContentRow key={key}>
+            {key}: <span>{value}</span>
+          </ConfirmationMessageContentRow>
+        ))}
       </ConfirmationMessageContent>
     </ConfirmationMessageStyled>
   );

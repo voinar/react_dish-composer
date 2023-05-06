@@ -8,35 +8,14 @@ import {
   ErrorMessageContentRow,
 } from './styles';
 import IconError from 'img/icons/icon-error.svg';
-import { ApiResponseObj } from 'types/apiResponseObj';
+import getComponentVisibility from 'utils/getComponentVisibility';
 
 const ErrorMessage = () => {
-  const errorMessageTitle = useAppSelector(
-    (state) => state.errorMessage.errorMessageTitle
+  const { errorMessageTitle, errorMessageContent, isVisible } = useAppSelector(
+    (state) => state.errorMessage
   );
-  const errorMessageContent: ApiResponseObj =
-    // {
-    //   name: ['ensure this value has at least 3 characters'],
-    //   type: ['field required'],
-    //   preparation_time: ['field required'],
-    // };
-    // {
-    //   name: ['12'],
-    //   preparation_time: ['11:11:01'],
-    //   type: ['sandwich'],
-    //   slices_of_bread: ['2'],
-    // }
-    useAppSelector((state) => state.errorMessage.errorMessageContent);
-
-  // console.log(
-  //   'errormsg',
-  //   errorMessageContent,
-  //   'stateerr',
-  //   useAppSelector((state) => state.errorMessage.errorMessageContent)
-  // );
-
   return (
-    <ErrorMessageStyled>
+    <ErrorMessageStyled style={getComponentVisibility(isVisible)}>
       <ErrorMessageHeader>
         <ErrorMessageIcon src={IconError} alt="Error" />
         <ErrorMessageTitle>Error: {errorMessageTitle}</ErrorMessageTitle>
@@ -45,7 +24,7 @@ const ErrorMessage = () => {
         {Object.keys(errorMessageContent).map((key) => (
           <li key={key}>
             {errorMessageContent[key].map(
-              (errorMessage: any, index: number) => (
+              (errorMessage: string, index: number) => (
                 <ErrorMessageContentRow key={key}>
                   <p>{key}</p>
                   <span>{errorMessage}</span>

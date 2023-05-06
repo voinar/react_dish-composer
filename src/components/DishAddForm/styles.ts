@@ -1,25 +1,26 @@
 import styled from 'styled-components';
 
-export const DishAddFormStyled = styled.form`
+const DishAddFormStyled = styled.form`
   display: flex;
   flex-direction: column;
   height: 100%;
 `;
 
-export const FormHeader = styled.div`
+const FormHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: left;
 `;
 
-export const FormHeaderText = styled.h1`
+const FormHeaderText = styled.h1`
   font-size: 1.6rem;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
   cursor: default;
 `;
 
-export const Button = styled.button`
-  margin: 3rem 0 2rem;
+const Button = styled.button`
+  margin-top: 3rem;
+  margin-bottom: 2rem;
   height: 2.4rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -31,8 +32,11 @@ export const Button = styled.button`
   cursor: pointer;
   transition: all 0.3s;
 
-  :hover {
+  &:hover {
     background-color: #885c5c;
     color: #ece2d8;
+    border-color: #ece2d8;
   }
 `;
+
+export { DishAddFormStyled, FormHeader, FormHeaderText, Button };

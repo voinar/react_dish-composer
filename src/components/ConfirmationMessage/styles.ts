@@ -1,39 +1,39 @@
 import styled from 'styled-components';
 
-export const ConfirmationMessageStyled = styled.div`
+const ConfirmationMessageStyled = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
   height: auto;
 `;
 
-export const ConfirmationMessageHeader = styled.div`
+const ConfirmationMessageHeader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
 
-export const ConfirmationMessageIcon = styled.img`
+const ConfirmationMessageIcon = styled.img`
   height: 2rem;
   margin-right: 0.5rem;
 `;
 
-export const ConfirmationMessageTitle = styled.h2`
+const ConfirmationMessageTitle = styled.h2`
   font-size: 1.2rem;
   font-weight: 500;
 `;
 
-export const ConfirmationMessageContent = styled.ul`
+const ConfirmationMessageContent = styled.ul`
   margin: 0;
   padding: 0;
   font-size: 0.9rem;
   font-weight: 500;
 `;
 
-export const ConfirmationMessageContentRow = styled.li`
+const ConfirmationMessageContentRow = styled.li`
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
 
   font-weight: 600;
   margin: 0.2rem;
@@ -42,3 +42,12 @@ export const ConfirmationMessageContentRow = styled.li`
     color: #68885c;
   }
 `;
+
+export {
+  ConfirmationMessageStyled,
+  ConfirmationMessageHeader,
+  ConfirmationMessageIcon,
+  ConfirmationMessageTitle,
+  ConfirmationMessageContent,
+  ConfirmationMessageContentRow,
+};
