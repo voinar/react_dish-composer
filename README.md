@@ -32,8 +32,8 @@
 
 ## 🖥️ Tech:
 * React 18.2
-* Node 16.18.1
-* Npm 8.5.0
+* Node 18.16.0
+* Npm 9.5.1
 * Redux Toolkit
 * Redux-Form
 * Typescript

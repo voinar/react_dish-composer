@@ -5,6 +5,7 @@ import type { IFormElement } from 'types/iFormElement';
 
 const FormElement = (props: IFormElement) => {
   switch (props.name) {
+
     case 'name':
       return (
         <FormElementStyled>
@@ -18,6 +19,7 @@ const FormElement = (props: IFormElement) => {
           />
         </FormElementStyled>
       );
+
     case 'preparation_time':
       return (
         <FormElementStyled>
@@ -33,6 +35,7 @@ const FormElement = (props: IFormElement) => {
           />
         </FormElementStyled>
       );
+
     case 'type':
       return (
         <FormElementStyled>
@@ -52,6 +55,7 @@ const FormElement = (props: IFormElement) => {
           </Field>
         </FormElementStyled>
       );
+
     case 'no_of_slices':
     case 'slices_of_bread':
       return (
@@ -69,6 +73,7 @@ const FormElement = (props: IFormElement) => {
           />
         </FormElementStyled>
       );
+
     case 'diameter':
       return (
         <FormElementStyled style={getComponentVisibility(props.isVisible)}>
@@ -85,6 +90,7 @@ const FormElement = (props: IFormElement) => {
           />
         </FormElementStyled>
       );
+
     case 'spiciness_scale':
       return (
         <FormElementStyled style={getComponentVisibility(props.isVisible)}>
@@ -105,6 +111,7 @@ const FormElement = (props: IFormElement) => {
           </Field>
         </FormElementStyled>
       );
+      
     default:
       return (
         <FormElementStyled>

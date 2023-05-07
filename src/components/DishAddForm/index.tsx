@@ -41,7 +41,7 @@ let DishAddForm: any = (props: { handleSubmit: () => void }) => {
           label="Select type"
           htmlFor="type"
           component="select"
-          options={['none', 'pizza', 'sandwich', 'soup']}
+          options={['', 'pizza', 'sandwich', 'soup']}
         />
         <FormElement
           name="no_of_slices"
@@ -50,7 +50,7 @@ let DishAddForm: any = (props: { handleSubmit: () => void }) => {
           type="number"
           step="1"
           min="1"
-          max="99"
+          max="20"
           placeholder="How many slices?"
           isVisible={formType === 'pizza'}
         />
@@ -80,7 +80,7 @@ let DishAddForm: any = (props: { handleSubmit: () => void }) => {
           type="number"
           step="1"
           min="1"
-          max="99"
+          max="6"
           placeholder="How many slices?"
           isVisible={formType === 'sandwich'}
         />
