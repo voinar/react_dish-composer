@@ -8,7 +8,6 @@ import {
   ConfirmationMessageContentRow,
 } from './styles';
 import IconSuccess from 'img/icons/icon-success.svg';
-// import { ApiResponseObj } from 'types/apiResponseObj';
 import getComponentVisibility from 'utils/getComponentVisibility';
 
 const ConfirmationMessage = () => {

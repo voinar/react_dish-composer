@@ -9,13 +9,12 @@ import {
 import FormElement from 'components/FormElement';
 import FormIcon from 'components/FormIcon';
 
-let DishAddForm = (props) => {
+let DishAddForm: any = (props: { handleSubmit: () => void }) => {
   const { handleSubmit } = props;
   const formContent = useAppSelector((state) => state.form.form);
   const formType = formContent?.values?.type;
 
   return (
-    <>
       <DishAddFormStyled onSubmit={handleSubmit}>
         <FormHeader>
           <FormIcon />
@@ -71,7 +70,7 @@ let DishAddForm = (props) => {
           label="Spiciness"
           component="select"
           type="select"
-          options={[null, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+          options={['', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
           isVisible={formType === 'soup'}
         />
         <FormElement
@@ -87,7 +86,6 @@ let DishAddForm = (props) => {
         />
         <Button type="submit">Submit</Button>
       </DishAddFormStyled>
-    </>
   );
 };
 

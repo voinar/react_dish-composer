@@ -15,9 +15,6 @@ const initialState: ConfirmationMessageState = {
     type: ['field required'],
     preparation_time: ['field required'],
   },
-  // {
-  //   string: [''],
-  // },
   isVisible: false,
 };
 
@@ -28,7 +25,7 @@ export const confirmationMessageSlice = createSlice({
     updateConfirmationMessageTitle: (state, action: PayloadAction<string>) => {
       return { ...state, confirmationMessageTitle: action.payload };
     },
-    updateConfirmationMessageContent: (state, action: PayloadAction<any>) => {
+    updateConfirmationMessageContent: (state, action: PayloadAction<object>) => {
       return { ...state, confirmationMessageContent: action.payload };
     },
     setConfirmationAsVisible: (state) => {
