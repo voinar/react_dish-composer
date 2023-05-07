@@ -13,6 +13,7 @@ const DishAddFormStyled = styled.form`
   border-radius: 0.5rem;
 
   @media screen and (max-width: 768px) {
+    margin-top: 1rem;
     width: calc(100% - 4rem);
   }
 `;

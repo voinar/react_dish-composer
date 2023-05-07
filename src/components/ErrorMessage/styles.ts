@@ -10,6 +10,10 @@ const ErrorMessageStyled = styled.div`
   outline: 1px solid ${secondaryColor};
   border-radius: .6rem;
   gap: 1rem;
+
+  @media screen and (max-width: 992px) {
+    width: 16rem;
+  }
 `;
 
 const ErrorMessageHeader = styled.div`
