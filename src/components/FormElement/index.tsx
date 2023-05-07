@@ -4,8 +4,9 @@ import getComponentVisibility from 'utils/getComponentVisibility';
 import type { IFormElement } from 'types/iFormElement';
 
 const FormElement = (props: IFormElement) => {
+  
   switch (props.name) {
-
+    // Display form elements conditionally. Each case displays form element if evaluated to true.
     case 'name':
       return (
         <FormElementStyled>
@@ -111,7 +112,7 @@ const FormElement = (props: IFormElement) => {
           </Field>
         </FormElementStyled>
       );
-      
+
     default:
       return (
         <FormElementStyled>

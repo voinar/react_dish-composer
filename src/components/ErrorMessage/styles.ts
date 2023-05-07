@@ -51,6 +51,7 @@ const ErrorMessageContentRow = styled.div`
   p {
     min-width: fit-content;
     margin-right: 0.5rem;
+    line-height: 2em;
 
     &:after {
       content: ':';

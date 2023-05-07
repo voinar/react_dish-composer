@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from 'hooks/hooks';
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks';
 import { setConfirmationAsHidden } from 'redux/confirmationMessageSlice';
 import getComponentVisibility from 'utils/getComponentVisibility';
 import {
@@ -13,6 +13,7 @@ import {
 import IconSuccess from 'img/icons/icon-success.svg';
 import IconClose from 'img/icons/icon-close.svg';
 
+// Maps over list of values returned from a successful API request.
 const ConfirmationMessage: () => JSX.Element = () => {
   const { confirmationMessageTitle, confirmationMessageContent, isVisible } =
     useAppSelector((state) => state.confirmationMessage);
@@ -36,6 +37,7 @@ const ConfirmationMessage: () => JSX.Element = () => {
       </ConfirmationMessageHeader>
       <ConfirmationMessageContent>
         {Object.entries(confirmationMessageContent).map(([key, value]) => (
+          // Map over list of values returned from a successful API request.
           <ConfirmationMessageContentRow key={key}>
             {key}: <span>{value}</span>
           </ConfirmationMessageContentRow>

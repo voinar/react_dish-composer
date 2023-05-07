@@ -1,4 +1,4 @@
-import { useAppSelector } from 'hooks/hooks';
+import { useAppSelector } from 'hooks/reduxHooks';
 import { FormIconStyled } from './styles';
 import IconAdd from 'img/icons/icon-add.svg';
 import IconPizza from 'img/icons/icon-pizza.svg';
@@ -25,6 +25,7 @@ const FormIcon: () => JSX.Element = () => {
           src={icon.src}
           alt={icon.alt}
           style={getComponentVisibility(
+            // Assess which icon should be displayed depending on 'formType' argument.
             (icon.type === undefined && formType === 'none') ||
               formType === icon.type
           )}

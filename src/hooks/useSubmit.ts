@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from 'hooks/hooks';
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks';
 import axios from 'axios';
 import * as ErrorMessageSlice from 'redux/errorMessageSlice';
 import * as ConfirmationMessageSlice from 'redux/confirmationMessageSlice';
@@ -9,12 +9,11 @@ import { ApiResponseObj } from 'types/apiResponseObj';
 export const useSubmit = () => {
   const dispatch = useAppDispatch();
   const requestUrl: string = process.env.REACT_APP_POST_REQUEST_URL!;
-
   const formContent = useAppSelector((state) => state.form.form);
-  const preparationTime = formContent?.values?.preparation_time;
 
   // Function for local validation of time input. If string length is more than 5 then allow the form to be sent. Otherwise display error message. Returns boolean to be used inside submitForm function.
   const validateTimeInput = () => {
+    const preparationTime = formContent?.values?.preparation_time;
     if (preparationTime?.length > 5) {
       return true;
     }
@@ -29,7 +28,7 @@ export const useSubmit = () => {
     return false;
   };
 
-  // Form submit function.
+  // Form submit function. Takes form values from redux store as argument.
   const submitForm = (values: RequestObject) => {
     const requestObject = {
       name: values.name,
@@ -47,7 +46,7 @@ export const useSubmit = () => {
     } else {
       axios
         .post(requestUrl, requestObject)
-        
+
         // Handle successful form submission & display success message.
         .then(function (response: ApiResponseObj) {
           dispatch(ErrorMessageSlice.setErrorAsHidden());
