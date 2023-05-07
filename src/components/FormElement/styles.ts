@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import IconArrow from 'img/icons/icon-arrow.svg';
+import { primaryColor, secondaryColor, accentColor, defaultTransition } from 'styles/globalStyles';
 
 const FormElementStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   margin-top: 1.3rem;
-  overflow: hidden;
-  transition: all 0.6s;
+  transition: ${defaultTransition};
   will-change: transform;
 
   input[type='text'],
@@ -22,21 +22,21 @@ const FormElementStyled = styled.div`
     border: none;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
-    border-bottom: 3px solid #885c5c;
+    border-bottom: 3px solid ${accentColor};
 
-    background-color: #ece2d8;
-    color: #885c5c;
+    background-color: ${secondaryColor};
+    color: ${primaryColor};
 
-    transition: all 0.3s;
+    transition: ${defaultTransition};
 
     &::placeholder {
-      color: #885c5c;
-      opacity: 0.6; /* Firefox */
+      color: ${primaryColor};
+      opacity: 0.6;
     }
   }
 
   input[type='time'] {
-    width: 95%;
+    /* width: 95%; */
   }
 
   select {
@@ -50,13 +50,13 @@ const FormElementStyled = styled.div`
 
   input:hover,
   select:hover {
-    background-color: #f5dcc3;
+    background-color: #f8cca0;
   }
 
   textarea:focus,
   input:focus,
   select:focus {
-    outline: 1px solid #885c5c33;
+    outline: 1px solid #885c5c10;
   }
 `;
 

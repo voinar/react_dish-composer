@@ -1,15 +1,20 @@
 import styled from 'styled-components';
+import { primaryColor, secondaryColor, defaultTransition } from 'styles/globalStyles';
+
 
 const DishAddFormStyled = styled.form`
   display: flex;
   flex-direction: column;
   width: 20rem;
-  height: 100%;
   padding: 1.5rem;
 
-  background-color: #ece2d8;
-  border: 1px solid #885c5c22;
-  border-radius: .5rem;
+  background-color: ${secondaryColor};
+  outline: 1px solid #885c5c14;
+  border-radius: 0.5rem;
+
+  @media screen and (max-width: 768px) {
+    width: calc(100% - 4rem);
+  }
 `;
 
 const FormHeader = styled.div`
@@ -31,17 +36,16 @@ const Button = styled.button`
   font-weight: 800;
   text-transform: uppercase;
   width: 100%;
-  background-color: #ece2d8;
-  border: 3px solid #885c5c;
+  background-color: ${secondaryColor};
+  border: 3px solid ${primaryColor};
   border-radius: 6px;
-  color: #885c5c;
+  color: ${primaryColor};
   cursor: pointer;
-  transition: all 0.3s;
+  transition: ${defaultTransition};
 
   &:hover {
-    background-color: #885c5c;
-    color: #ece2d8;
-    border-color: #ece2d8;
+    background-color: ${primaryColor};
+    color: ${secondaryColor};
   }
 `;
 
