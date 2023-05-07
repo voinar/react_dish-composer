@@ -5,7 +5,7 @@ import IconPizza from 'img/icons/icon-pizza.svg';
 import IconSandwich from 'img/icons/icon-sandwich.svg';
 import IconSoup from 'img/icons/icon-soup.svg';
 
-const FormIcon = () => {
+const FormIcon: () => JSX.Element = () => {
   const formContent = useAppSelector((state) => state.form.form);
   const formType = formContent?.values?.type;
 

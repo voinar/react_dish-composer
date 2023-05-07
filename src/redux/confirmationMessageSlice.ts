@@ -1,19 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { ApiResponseObj } from 'types/apiResponseObj';
-
-interface ConfirmationMessageState {
-  confirmationMessageTitle: string;
-  confirmationMessageContent: ApiResponseObj;
-  isVisible: boolean;
-}
+import { ConfirmationMessageState } from 'types/confirmationMessageState';
 
 const initialState: ConfirmationMessageState = {
   confirmationMessageTitle: 'Confirmation',
   confirmationMessageContent: {
-    name: ['ensure this value has at least 3 characters'],
-    type: ['field required'],
-    preparation_time: ['field required'],
+    name: ['default']
   },
   isVisible: false,
 };

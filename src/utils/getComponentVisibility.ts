@@ -1,7 +1,5 @@
 const getComponentVisibility = (isVisible: undefined | boolean) => {
-  const visibility = isVisible!;
-
-  return visibility
+  return isVisible
     ? {
         opacity: 1,
         transform: 'scaleY(1)',

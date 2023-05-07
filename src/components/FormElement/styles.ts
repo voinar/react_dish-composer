@@ -70,7 +70,6 @@ const FormElementStyled = styled.div`
     outline: none;
     box-shadow: none;
     border-bottom-color:#885c5c10;
-
 }
 `;
 

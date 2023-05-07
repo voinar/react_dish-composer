@@ -1,4 +1,6 @@
-import { useAppSelector } from 'hooks/hooks';
+import { useAppDispatch, useAppSelector } from 'hooks/hooks';
+import getComponentVisibility from 'utils/getComponentVisibility';
+import { setConfirmationAsHidden } from 'redux/confirmationMessageSlice';
 import {
   ConfirmationMessageStyled,
   ConfirmationMessageHeader,
@@ -6,13 +8,19 @@ import {
   ConfirmationMessageTitle,
   ConfirmationMessageContent,
   ConfirmationMessageContentRow,
+  ConfirmationMessageButton,
 } from './styles';
 import IconSuccess from 'img/icons/icon-success.svg';
-import getComponentVisibility from 'utils/getComponentVisibility';
+import IconClose from 'img/icons/icon-close.svg';
 
-const ConfirmationMessage = () => {
+const ConfirmationMessage: () => JSX.Element = () => {
   const { confirmationMessageTitle, confirmationMessageContent, isVisible } =
     useAppSelector((state) => state.confirmationMessage);
+  const dispatch = useAppDispatch();
+
+  const hideMessage = () => {
+    dispatch(setConfirmationAsHidden());
+  };
 
   return (
     <ConfirmationMessageStyled style={getComponentVisibility(isVisible)}>
@@ -21,6 +29,9 @@ const ConfirmationMessage = () => {
         <ConfirmationMessageTitle>
           Success: {confirmationMessageTitle}
         </ConfirmationMessageTitle>
+        <ConfirmationMessageButton onClick={hideMessage}>
+          <img src={IconClose} alt="Close" />
+        </ConfirmationMessageButton>
       </ConfirmationMessageHeader>
       <ConfirmationMessageContent>
         {Object.entries(confirmationMessageContent).map(([key, value]) => (

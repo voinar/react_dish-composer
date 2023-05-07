@@ -2,6 +2,10 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
+html * {
+  /* outline: 1px solid #ff00ffaa; */
+}
+
 body {
   margin: 0;
   padding: 0;
