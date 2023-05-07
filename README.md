@@ -44,7 +44,7 @@
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
-# Clone this repository
+# Clone this repository (OR download ZIP and extract files)
 $ git clone https://github.com/voinar/react_dish-composer
 
 # Go into the repository
