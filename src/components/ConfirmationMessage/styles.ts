@@ -7,6 +7,11 @@ const ConfirmationMessageStyled = styled.div`
   margin-left: 4rem;
   width: 20rem;
   height: auto;
+
+  @media screen and (max-width: 992px) {
+    padding-top: 1rem;
+    margin-left: 1rem;
+  }
 `;
 
 const ConfirmationMessageHeader = styled.div`

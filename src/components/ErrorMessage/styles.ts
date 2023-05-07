@@ -7,6 +7,11 @@ const ErrorMessageStyled = styled.div`
   margin-left: 4rem;
   width: 20rem;
   height: auto;
+
+  @media screen and (max-width: 992px) {
+    padding-top: 1rem;
+    margin-left: 1rem;
+  }
 `;
 
 const ErrorMessageHeader = styled.div`
@@ -30,7 +35,7 @@ const ErrorMessageContent = styled.ul`
   padding: 0;
   font-size: 0.9rem;
   font-weight: 500;
-  list-style-type: none
+  list-style-type: none;
 `;
 
 const ErrorMessageContentRow = styled.div`
