@@ -1,6 +1,6 @@
 import { ApiResponseObj } from 'types/apiResponseObj';
 
-export type ErrorMessageState = {
+export interface ErrorMessageState {
   errorMessageTitle: string;
   errorMessageContent: ApiResponseObj;
   isVisible: boolean;

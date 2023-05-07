@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'hooks/hooks';
-import getComponentVisibility from 'utils/getComponentVisibility';
 import { setConfirmationAsHidden } from 'redux/confirmationMessageSlice';
+import getComponentVisibility from 'utils/getComponentVisibility';
 import {
   ConfirmationMessageStyled,
   ConfirmationMessageHeader,
@@ -16,6 +16,7 @@ import IconClose from 'img/icons/icon-close.svg';
 const ConfirmationMessage: () => JSX.Element = () => {
   const { confirmationMessageTitle, confirmationMessageContent, isVisible } =
     useAppSelector((state) => state.confirmationMessage);
+
   const dispatch = useAppDispatch();
 
   const hideMessage = () => {

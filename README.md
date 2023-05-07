@@ -1,8 +1,9 @@
 <h1 align="center">
   <br>
-  Dish Composer Form
+  <img width="28" alt="dish composer form" src="https://user-images.githubusercontent.com/38013623/236681144-a5110252-ebf0-4658-8c1a-8636aeaf5c06.png" /> Dish Composer Form
   <br>
 </h1>
+
 
 <h4 align="center">A minimal Dish Composer Form created with React and Redux-form</h4>
 
@@ -21,7 +22,7 @@
 <img width="260" alt="dish composer form" src="https://user-images.githubusercontent.com/38013623/236595859-03461717-0901-46fe-a7b3-669595bb11be.png">
 </a>
 
-## Key Features
+## ✨ Key Features
 
 * Create a dish by selecting from the available options
 * Input validation
@@ -29,7 +30,7 @@
 * Error handling
 * Receive response from server & display results
 
-## Tech:
+## 🖥️ Tech:
 * React 18.2
 * Node 16.18.1
 * Npm 8.5.0
@@ -38,7 +39,7 @@
 * Typescript
 * Styled Components
 
-## How To Setup
+## 🛠️ How To Setup
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
@@ -49,7 +50,7 @@ $ git clone https://github.com/voinar/react_dish-composer
 # Go into the repository
 $ cd dish-composer
 
-# Install dependencies
+# Install node dependencies
 $ npm install
 
 # Run the app
@@ -59,7 +60,7 @@ The app will start on http://localhost:3000/ by default.
 ```
 
 
-## License
+## 📄 License
 
 MIT
 

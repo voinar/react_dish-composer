@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'hooks/hooks';
 import { setErrorAsHidden } from 'redux/errorMessageSlice';
+import getComponentVisibility from 'utils/getComponentVisibility';
 import {
   ErrorMessageStyled,
   ErrorMessageHeader,
@@ -10,7 +11,6 @@ import {
   ErrorMessageButton,
 } from './styles';
 import IconError from 'img/icons/icon-error.svg';
-import getComponentVisibility from 'utils/getComponentVisibility';
 import IconClose from 'img/icons/icon-close.svg';
 
 const ErrorMessage: () => JSX.Element = () => {
@@ -19,6 +19,7 @@ const ErrorMessage: () => JSX.Element = () => {
   );
 
   const dispatch = useAppDispatch();
+  
   const hideMessage = () => {
     dispatch(setErrorAsHidden());
   };

@@ -1,4 +1,4 @@
-export type ApiResponseObj = {
+export interface ApiResponseObj {
   name?: string[];
   preparation_time?: string[];
   type?: string[];

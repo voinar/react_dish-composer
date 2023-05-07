@@ -1,22 +1,9 @@
 import { Field } from 'redux-form';
 import { FormElementStyled } from './styles';
 import getComponentVisibility from 'utils/getComponentVisibility';
+import type { IFormElement } from 'types/iFormElement';
 
-type TFormElement = {
-  name: string;
-  htmlFor?: string;
-  label?: string;
-  component?: string;
-  type?: string;
-  placeholder?: string;
-  options?: number[] | string[] | [];
-  isVisible?: boolean;
-  step?: number | string;
-  min?: number | string;
-  max?: number | string;
-};
-
-const FormElement = (props: TFormElement) => {
+const FormElement = (props: IFormElement) => {
   switch (props.name) {
     case 'name':
       return (
@@ -59,7 +46,6 @@ const FormElement = (props: TFormElement) => {
           >
             {props?.options?.map((option) => (
               <option key={option} value={option}>
-                {/* {option?.charAt(0).toUpperCase() + option?.slice(1)} */}
                 {option}
               </option>
             ))}

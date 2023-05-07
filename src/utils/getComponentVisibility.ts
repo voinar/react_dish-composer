@@ -9,7 +9,8 @@ const getComponentVisibility = (isVisible: undefined | boolean) => {
         transform: 'scaleY(0)',
         maxHeight: '0px',
         margin: 0,
-        width: 0
+        padding: 0,
+        width: 0,
       };
 };
 

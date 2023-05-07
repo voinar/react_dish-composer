@@ -1,4 +1,4 @@
-export type RequestObject = {
+export interface RequestObject {
   name: string;
   preparation_time: string;
   type: string;
