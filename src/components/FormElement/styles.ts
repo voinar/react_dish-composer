@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import IconArrow from 'img/icons/icon-arrow.svg';
-import { primaryColor, secondaryColor, accentColor, defaultTransition } from 'styles/globalStyles';
+import {
+  primaryColor,
+  secondaryColor,
+  accentColor,
+  defaultTransition,
+} from 'styles/globalStyles';
 
 const FormElementStyled = styled.div`
   display: flex;
@@ -17,15 +22,14 @@ const FormElementStyled = styled.div`
     padding: 0 0.5rem;
     height: 2.4rem;
 
-    font-size: 1rem;
-
     border: none;
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px;
+    border-radius: 4px;
     border-bottom: 3px solid ${accentColor};
 
     background-color: ${secondaryColor};
     color: ${primaryColor};
+
+    font-size: 1rem;
 
     transition: ${defaultTransition};
 
@@ -35,8 +39,15 @@ const FormElementStyled = styled.div`
     }
   }
 
+  input[type='time']::-webkit-calendar-picker-indicator {
+    filter: invert(30%) sepia(100%) saturate(500%) hue-rotate(10deg)
+      brightness(100%) contrast(90%);
+  }
+
   input[type='time'] {
-    /* width: 95%; */
+    @media screen and (max-width: 992px) {
+      width: calc(100% - 1rem)
+    }
   }
 
   select {
@@ -56,8 +67,11 @@ const FormElementStyled = styled.div`
   textarea:focus,
   input:focus,
   select:focus {
-    outline: 1px solid #885c5c10;
-  }
+    outline: none;
+    box-shadow: none;
+    border-bottom-color:#885c5c10;
+
+}
 `;
 
 export { FormElementStyled };
