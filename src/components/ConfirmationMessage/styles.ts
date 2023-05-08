@@ -10,9 +10,11 @@ const ConfirmationMessageStyled = styled.div`
   outline: 1px solid ${secondaryColor};
   border-radius: .6rem;
   gap: 1rem;
+  box-shadow: 0px 0px 18px 2px rgba(136, 92, 92, 0.14);
 
   @media screen and (max-width: 992px) {
     width: 16rem;
+    margin-top: 2rem;
   }
 `;
 

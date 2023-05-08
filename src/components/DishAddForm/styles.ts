@@ -11,6 +11,7 @@ const DishAddFormStyled = styled.form`
   background-color: ${secondaryColor};
   outline: 1px solid #885c5c14;
   border-radius: 0.5rem;
+  box-shadow: 0px 0px 18px 2px rgba(136, 92, 92, 0.14);
 
   @media screen and (max-width: 768px) {
     margin-top: 1rem;
